@@ -63,7 +63,7 @@ fairseq-train "${MUSTC_ROOT}/${lang_pair}" \
 --task speech_to_text \
 --criterion label_smoothed_cross_entropy \
 --label-smoothing 0.1 \
---arch s2t_transformer_s \
+--arch s2t_perceiver_s \
 --optimizer adam \
 --lr 0.002 \
 --lr-scheduler inverse_sqrt \

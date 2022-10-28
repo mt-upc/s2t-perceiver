@@ -14,7 +14,7 @@ Transformers have been the dominant architecture for Speech Translation in recen
 
 S2T-Perceiver |  Dynamic Latent Access
 :-------------------------:|:-------------------------:
-![](figures/s2t_perceiver.png)  |  ![](figures/dla.png)
+![](figures/s2t-perceiver.png)  |  ![](figures/dla.png)
 
 ## Citation
 
