@@ -1,0 +1,22 @@
+name: s2t_perceiver
+
+channels:
+  - pytorch
+  - conda-forge
+
+dependencies:
+  - pip=22.1.2
+  - python=3.9.12
+  - cudatoolkit=11.3
+  - pytorch=1.12.1
+  - torchaudio=0.12.1
+  - numpy=1.22.3
+  - sentencepiece=0.1.95
+
+  - pip:
+    - wandb==0.13.3
+    - tensorboardX==2.5.1
+    - pandas==1.4.3
+    - soundfile==0.10.3.post1
+    - sacrebleu==1.5.1
+    - editdistance==0.6.0
