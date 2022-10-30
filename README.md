@@ -80,5 +80,5 @@ path_to_exp=...
 # number of latents for DLA-inf
 k_inf=...
 
-bash ${PERCEIVER_ROOT}/scripts/eval_st.sh $path_to_exp en-de $k_inf
+bash ${PERCEIVER_ROOT}/scripts/eval_perceiver_st.sh $path_to_exp en-de $k_inf
 ```
