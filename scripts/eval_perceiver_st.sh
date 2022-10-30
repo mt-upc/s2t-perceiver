@@ -6,12 +6,9 @@ dla_inf_k=$3
 
 path_to_ckpt=${experiment_path}/ckpts/avg_best_10_checkpoint.pt
 
-python "$PERCEIVER_ROOT"/scripts/find_best_ckpts.py \
-    "$experiment_path"/ckpts 10 min
-inputs=$(head -n 1 "${experiment_path}"/ckpts/best_10.txt)
-
+best_ckpts="$(find "$experiment_path"/ckpts/checkpoint.best*.pt | tr '\n' ' ' )"
 python "$PERCEIVER_ROOT"/fairseq/scripts/average_checkpoints.py \
-    --inputs "$inputs" \
+    --inputs $best_ckpts \
     --output "$path_to_ckpt"
 
 if [ "$dla_inf_k" == 2048 ]; then
@@ -30,14 +27,20 @@ elif [ "$dla_inf_k" == 256 ]; then
     batch_size=448
     max_tokens=448_000
 elif [ "$dla_inf_k" == 128 ]; then
-    batch_size=960
-    max_tokens=960_000
+    batch_size=720
+    max_tokens=720_000
 elif [ "$dla_inf_k" == 64 ]; then
-    batch_size=1_504
-    max_tokens=1_504_000
+    batch_size=1_200
+    max_tokens=1_200_000
 fi
 
-fairseq-train "${MUSTC_ROOT}/${lang_pair}" \
+if [ $lang_pair == en-de ]; then
+    lenpen=1.5
+else
+    lenpen=1.0
+fi
+
+fairseq-generate "${MUSTC_ROOT}/${lang_pair}" \
 --config-yaml config_st.yaml \
 --gen-subset tst-COMMON_st \
 --task speech_to_text \
@@ -45,6 +48,7 @@ fairseq-train "${MUSTC_ROOT}/${lang_pair}" \
 --max-tokens $max_tokens \
 --batch-size $batch_size \
 --beam 5 \
+--lenpen $lenpen \
 --scoring sacrebleu \
 --seed 42 \
 --model-overrides "{'dla_inf_num_latents': $dla_inf_k}"
