@@ -33,7 +33,10 @@ export OUTPUT_ROOT=$VEUSSD/s2t-perceiver
 Clone this repository to `$PERCEIVER_ROOT`:
 
 ```bash
-git clone https://github.com/mt-upc/s2t_perceiver.git ${PERCEIVER_ROOT}
+git clone https://github.com/mt-upc/s2t_perceiver.git ${PERCEIVER_ROOT} && \
+cd ${PERCEIVER_ROOT} && \
+git submodule init && \
+git submodule update
 ```
 
 Create a conda environment using the `environment.yml` file and activate it:
