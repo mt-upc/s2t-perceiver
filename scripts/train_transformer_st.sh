@@ -7,12 +7,9 @@ asr_experiment_name=asr_transformer
 asr_experiment_path=${OUTPUT_ROOT}/asr/${asr_experiment_name}
 asr_checkpoint=${asr_experiment_path}/ckpts/avg_best_10_checkpoint.pt
 
-python "$PERCEIVER_ROOT"/scripts/find_best_ckpts.py \
-    "$asr_experiment_path"/ckpts 10 min
-inputs=$(head -n 1 "${asr_experiment_path}"/ckpts/best_10.txt)
-
+best_ckpts="$(find "$asr_experiment_path"/ckpts/checkpoint.best*.pt | tr '\n' ' ' )"
 python "$PERCEIVER_ROOT"/fairseq/scripts/average_checkpoints.py \
-    --inputs "$inputs" \
+    --inputs $best_ckpts \
     --output "$asr_checkpoint"
 ###
 
