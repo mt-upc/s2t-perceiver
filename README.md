@@ -6,6 +6,8 @@ The pre-print of this research is available [here](https://arxiv.org/abs/2210.16
 Transformers have been the dominant architecture for Speech Translation in recent years, achieving significant improvements in translation quality. Since speech signals are longer than their textual counterparts, and due to the quadratic complexity of the Transformer, a down-sampling step is essential for its adoption in Speech Translation. Instead, in this research, we propose to ease the complexity by using a Perceiver encoder to map the speech inputs to a fixed-length latent representation. Furthermore, we introduce a novel way of training Perceivers, with Dynamic Latent Access (DLA), unlocking larger latent spaces without any additional computational overhead. Speech-to-Text Perceivers with DLA can match the performance of a Transformer baseline across three language pairs in MuST-C. Finally, a DLA-trained model is easily adaptable to DLA at inference, and can be flexibly deployed with various computational budgets, without significant drops in translation quality.
 </em>
 
+<br/><br/>
+
 S2T-Perceiver |  Dynamic Latent Access
 :-------------------------:|:-------------------------:
 ![](figures/s2t-perceiver.png)  |  ![](figures/dla.png)
