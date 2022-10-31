@@ -21,8 +21,8 @@ fairseq-generate "${MUSTC_ROOT}/${lang_pair}" \
 --gen-subset tst-COMMON_st \
 --task speech_to_text \
 --path "$path_to_ckpt" \
---max-tokens 448_000 \
---batch-size 448 \
+--max-tokens 360_000 \
+--batch-size 360 \
 --beam 5 \
 --lenpen $lenpen \
 --scoring sacrebleu \
