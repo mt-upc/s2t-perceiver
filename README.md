@@ -1,16 +1,14 @@
 # Efficient Speech Translation with Dynamic Latent Perceivers
 
-The pre-print of this research is available [here](https://arxiv.org/abs/2210.16264).
-
 <em>
-Transformers have been the dominant architecture for Speech Translation in recent years, achieving significant improvements in translation quality. Since speech signals are longer than their textual counterparts, and due to the quadratic complexity of the Transformer, a down-sampling step is essential for its adoption in Speech Translation. Instead, in this research, we propose to ease the complexity by using a Perceiver encoder to map the speech inputs to a fixed-length latent representation. Furthermore, we introduce a novel way of training Perceivers, with Dynamic Latent Access (DLA), unlocking larger latent spaces without any additional computational overhead. Speech-to-Text Perceivers with DLA can match the performance of a Transformer baseline across three language pairs in MuST-C. Finally, a DLA-trained model is easily adaptable to DLA at inference, and can be flexibly deployed with various computational budgets, without significant drops in translation quality.
+Transformers have been the dominant architecture for Speech Translation in recent years, achieving significant improvements in translation quality. Since speech signals are longer than their textual counterparts, and due to the quadratic complexity of the Transformer, a down-sampling step is essential for its adoption in Speech Translation. Instead, in this research, we propose to ease the complexity by using a Perceiver encoder to map the speech inputs to a fixed-length latent representation. Furthermore, we introduce a novel way of training Perceivers, with Dynamic Latent Access (DLA), unlocking larger latent spaces without any additional computational overhead. Speech-to-Text Perceivers with DLA can match the performance of Transformer baselines across three language pairs in MuST-C. Finally, a DLA-trained model is easily adaptable to DLA at inference, and can be flexibly deployed with various computational budgets, without significant drops in translation quality.
 </em>
 
 <br/><br/>
 
 S2T-Perceiver |  Dynamic Latent Access
 :-------------------------:|:-------------------------:
-![](figures/s2t-perceiver.png)  |  ![](figures/dla.png)
+![](figures/s2t-Perceiver.jpg)  |  ![](figures/DLA.jpg)
 
 ## Setup
 
@@ -85,12 +83,13 @@ bash ${PERCEIVER_ROOT}/scripts/eval_perceiver_st.sh $path_to_exp $lang_pair $k_i
 ## Citation
 
 ```bash
-@misc{https://doi.org/10.48550/arxiv.2210.16264,
-  doi = {10.48550/ARXIV.2210.16264},
-  url = {https://arxiv.org/abs/2210.16264},
-  author = {Tsiamas, Ioannis and Gállego, Gerard I. and Fonollosa, José A. R. and Costa-jussá, Marta R.},
-  title = {Efficient Speech Translation with Dynamic Latent Perceivers},
-  publisher = {arXiv},
-  year = {2022}
-}
+@INPROCEEDINGS{10095276,
+  author={Tsiamas, Ioannis and Gállego, Gerard I. and Fonollosa, José A. R. and Costa-jussà, Marta R.},
+  booktitle={ICASSP 2023 - 2023 IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP)}, 
+  title={Efficient Speech Translation with Dynamic Latent Perceivers}, 
+  year={2023},
+  volume={},
+  number={},
+  pages={1-5},
+  doi={10.1109/ICASSP49357.2023.10095276}}
 ```
