@@ -1,5 +1,7 @@
 # Efficient Speech Translation with Dynamic Latent Perceivers
 
+This work was accepted at ICASSP 2023 and is availble [here](https://ieeexplore.ieee.org/document/10095276).
+
 <em>
 Transformers have been the dominant architecture for Speech Translation in recent years, achieving significant improvements in translation quality. Since speech signals are longer than their textual counterparts, and due to the quadratic complexity of the Transformer, a down-sampling step is essential for its adoption in Speech Translation. Instead, in this research, we propose to ease the complexity by using a Perceiver encoder to map the speech inputs to a fixed-length latent representation. Furthermore, we introduce a novel way of training Perceivers, with Dynamic Latent Access (DLA), unlocking larger latent spaces without any additional computational overhead. Speech-to-Text Perceivers with DLA can match the performance of Transformer baselines across three language pairs in MuST-C. Finally, a DLA-trained model is easily adaptable to DLA at inference, and can be flexibly deployed with various computational budgets, without significant drops in translation quality.
 </em>
@@ -86,7 +88,7 @@ bash ${PERCEIVER_ROOT}/scripts/eval_perceiver_st.sh $path_to_exp $lang_pair $k_i
 @INPROCEEDINGS{10095276,
   author={Tsiamas, Ioannis and Gállego, Gerard I. and Fonollosa, José A. R. and Costa-jussà, Marta R.},
   booktitle={ICASSP 2023 - 2023 IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP)}, 
-  title={Efficient Speech Translation with Dynamic Latent Perceivers}, 
+  title={{Efficient Speech Translation with Dynamic Latent Perceivers}}, 
   year={2023},
   volume={},
   number={},
